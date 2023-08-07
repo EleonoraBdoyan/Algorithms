@@ -37,3 +37,19 @@ assert binary_search([-1, -3, 5, 7, 9, 11, 13, 15], 9, 0, len([-1, -3, 5, 7, 9, 
 assert binary_search([-1, -3, 5, 7, 9, 11, 13, 15], 15, 0, len([-1, -3, 5, 7, 9, 11, 13, 15]) - 1) == 7
 assert binary_search([-1, -3, 5, 7, 9, 11, 13, 15], 19, 0, len([-1, -3, 5, 7, 9, 11, 13, 15]) - 1) is None
 assert binary_search([], 19, 0, len([]) - 1) is None
+
+
+# Insertion sort
+def insertion_sort(iterable):
+    for j in range(1, len(iterable)):
+        key = iterable[j]
+        i = j - 1
+        while i >= 0 and iterable[i] > key:
+            iterable[i + 1] = iterable[i]
+            i -= 1
+        iterable[i + 1] = key
+    return iterable
+
+
+assert insertion_sort([3, -2, 1, -4, 0, 5]) == [-4, -2, 0, 1, 3, 5]
+assert insertion_sort([5, 2, 9, 1, 5, 6]) == [1, 2, 5, 5, 6, 9]
